@@ -1,4 +1,5 @@
 const morgan = require('morgan')
+const helmet = require('helmet')
 const express = require('express')
 const app = express()
 const mongoClient = require('mongoose')
@@ -15,6 +16,7 @@ mongoClient.connect('mongodb://127.0.0.1/nodejsapistarter')
     })
 
 // Middlewares
+app.use(helmet())
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 

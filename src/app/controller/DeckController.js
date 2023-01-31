@@ -27,6 +27,7 @@ class DeckController {
 
     async deleteDeck(req, res) {
         const deckID = req.value.params.deckID
+        
         const deck = await Deck.findById(deckID)
         const ownerID = deck.owner
         const owner = await User.findById(ownerID)
